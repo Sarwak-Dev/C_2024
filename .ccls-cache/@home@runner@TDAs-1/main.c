@@ -23,7 +23,7 @@ void mostrarMenuPrincipal() {
   puts("3) Mostrar lista de espera");
   puts("4) Atender al siguiente paciente");
   puts("5) Mostrar pacientes por prioridad");
-  puts("6) Salir11");
+  puts("6) 543534345354");
 }
 
 void registrar_paciente(List *pacientes) {

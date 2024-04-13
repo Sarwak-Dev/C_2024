@@ -23,7 +23,7 @@ void mostrarMenuPrincipal() {
   puts("3) Mostrar lista de espera");
   puts("4) Atender al siguiente paciente");
   puts("5) Mostrar pacientes por prioridad");
-  puts("6) Salir");
+  puts("6) Salir11");
 }
 
 void registrar_paciente(List *pacientes) {
@@ -39,7 +39,8 @@ void mostrar_lista_pacientes(List *pacientes) {
 
 int main() {
   char opcion;
-  List *pacientes = list_create(); // puedes usar una lista para gestionar los pacientes
+  List *pacientes =
+      list_create(); // puedes usar una lista para gestionar los pacientes
 
   do {
     mostrarMenuPrincipal();

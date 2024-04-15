@@ -2,6 +2,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+struct listaP {
+  char nombre[50];
+  int edad;
+  char sintoma[50];
+  int prioridad;
+};
+
+int count = 0;
+struct listaP *data = NULL;
+
 // Función para limpiar la pantalla
 void limpiarPantalla() { system("clear"); }
 
@@ -23,12 +33,33 @@ void mostrarMenuPrincipal() {
   puts("3) Mostrar lista de espera");
   puts("4) Atender al siguiente paciente");
   puts("5) Mostrar pacientes por prioridad");
-  puts("6) S112333");
+  puts("6) Salir");
 }
 
 void registrar_paciente(List *pacientes) {
-  printf("Registrar nuevo paciente\n");
-  // Aquí implementarías la lógica para registrar un nuevo paciente
+
+  if (count == 0) {
+    data = (struct listaP *)malloc(sizeof(struct listaP));
+  }
+
+  else {
+    data = (struct listaP *)realloc(data, sizeof(struct listaP) * (count + 1));
+  }
+
+  printf("Registre el nuevo paciente\n");
+
+  printf("Nombre del paciente\n");
+  scanf("%49s", data->nombre);
+
+  printf("Edad del paciente\n");
+  scanf("%d", &data->edad);
+
+  printf("Sintoma del paciente\n");
+  scanf("%49s", data->sintoma);
+
+  // list_pushBack(pacientes, &data);
+
+  count++;
 }
 
 void mostrar_lista_pacientes(List *pacientes) {
@@ -53,7 +84,7 @@ int main() {
       registrar_paciente(pacientes);
       break;
     case '2':
-      // Lógica para asignar prioridad
+      // asignar_prioridad(pacientes);
       break;
     case '3':
       mostrar_lista_pacientes(pacientes);

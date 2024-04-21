@@ -1,33 +1,70 @@
-En este *repl* puedes encontrar varios ejemplos que te pueden ayudar con las tareas de estructura.
-
-## Código de Ejemplo (main)
-Para ejecutar el main primero debemos compilar (en la carpeta raíz)
-````
+Para ejecutar el codigo hay que usar estos comandos:
+````c
 gcc tdas/*.c main.c -Wno-unused-result -o main
 ````
 
 Y luego ejecutar:
-````
+````c
 ./main
 ````
 
-## TDAs
-En la carpeta `tdas` se encuentran implementados distintos TDAs que puedes utilizar (lista, pila, cola, cola con prioridad y mapas). 
+<br>
 
-Las implementaciones no son las más eficientes (todas usan como estructura de datos una **lista enlazada**), por lo que puedes reemplazarlas por las que has realizado en los labs.
+<hr>
 
-## Otros códigos (en carpeta examples)
-Para ejecutar los distintos ejemplos que hay en la carpeta `examples`, primero debes compilarlos. Si estamos en la carpeta raíz:
-````
-gcc tdas/*.c examples/example2_menu.c -Wno-unused-result -o example
-````
-Y luego ejecutarlos:
-````
-./example
+# Funcionamiento del codigo
+
+### El codigo te abre un menu donde tu eliges que opcion te interesa.
+
+````bash
+1) Registrar paciente `nombre del paciente`, `edad`, `sintoma`
+2) Asignar prioridad al paciente `ALTA`, `MEDIA`, `BAJA`
+3) Mostrar lista de espera
+4) Atender al siguiente paciente
+5) Mostrar paciente por prioridad `ALTA`, `MEDIA`, `BAJA`
+6) Exit
 ````
 
-Se incluyen los siguientes ejemplos:
-* `example1_list`: Uso del TDA Lista, inserción y eliminación de elementos.
-* `example2_menu`: Ejemplo de menú con submenús.
-* `example3_readcsv`: Ejemplo de lectura desde un archivo csv y almacenamiento en datos estructurados.
-* `example4_map`: Ejemplo de uso del TDA mapa.
+El funcionamiento es simple, crea un struct donde almacenan los distintos datos necesarios y ahi crea el array global con tipo de dato del struct.
+
+````c
+struct listaP {
+//<--datos struct-->
+};
+
+struct listaP *data = NULL;
+````
+
+Tambien se usa la zona horario donde te encuentras para registrar la hora actual y ponerla en cada paciente al registrarse.
+
+### Prototipos de funciones principales
+
+````c
+void mostrarMenuPrincipal();
+void registrar_paciente();
+void asignar_prioridad();
+void mostrar_lista_pacientes();
+void eliminar_paciente();
+void mostrar_prioridad_pacientes();
+````
+
+Todas las funciones son sin argumentos porque hice un array global donde se cambia en todo el codigo y no hay necesidad de poner argumentos.
+
+<br>
+
+<hr>
+
+## Ordenamiento del array por prioridad y hora
+
+Para ordenar el array yo utilice qsort para facilitar el proceso y ser mas eficiente, cree una funcion para comparar la prioridad y si son iguales por la hora y despues se ordenan al llamar al qsort en `mostrar_lista_pacientes`.
+
+````c
+int comparar_pacientes(const void *a, const void *b) //prototipo de la funcion comparar
+````
+````c
+qsort(data, count, sizeof(struct listaP), comparar_pacientes); //funcion qsort para ordenar de mayor a menor
+````
+
+
+
+

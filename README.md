@@ -20,7 +20,7 @@ Y luego ejecutar:
 ### El codigo te abre un menu donde tu eliges que opcion te interesa.
 
 ````bash
-1) Registrar paciente `nombre del paciente`, `edad`, `sintoma`
+1) Registrar paciente `nombre_del_paciente`, `edad`, `sintoma`
 2) Asignar prioridad al paciente `ALTA`, `MEDIA`, `BAJA`
 3) Mostrar lista de espera
 4) Atender al siguiente paciente

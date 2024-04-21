@@ -17,8 +17,6 @@ Y luego ejecutar:
 
 <hr>
 
-# Funcionamiento del codigo
-
 ### El codigo te abre un menu donde tu eliges que opcion te interesa.
 
 ````bash
@@ -66,7 +64,7 @@ Todas las funciones son sin argumentos porque hice un array global donde se camb
 
 <hr>
 
-## Ordenamiento del array por prioridad y hora
+### Ordenamiento del array por prioridad y hora
 
 Para ordenar el array yo utilice qsort para facilitar el proceso y ser mas eficiente, cree una funcion para comparar la prioridad y si son iguales por la hora y despues se ordenan al llamar al qsort en `mostrar_lista_pacientes`.
 
@@ -78,7 +76,18 @@ qsort(data, count, sizeof(struct listaP), comparar_pacientes); //funcion qsort p
 ````
 <br>
 
-Development By Sarwak
+### Observaciones
+- Por defecto si no le pones ninguna prioridad a un paciente, quedara en BAJA por default.
+- El codigo cuando te piden ingresar una opcion que son numeros y tu agregas una letra va a arrojar `Segmentation fault (core dumped)`.
+- Si a la edad ingresas un valor no válido como un caracter va a quedar por defecto en 0 años.
+- Al querer cambiar la prioridad de un paciente, el nombre tiene que ser exactamente igual al registrado, si no, no lo encontrara.
+- Si le agregas una prioridad a un paciente que no existe tambien arrojara `Segmentation fault (core dumped)`.
+
+<br>
+
+<br>
+
+###### 💻 | Development By Sarwak
 
 
 

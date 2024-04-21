@@ -17,7 +17,7 @@ Y luego ejecutar:
 
 <hr>
 
-### El codigo te abre un menu donde tu eliges que opcion te interesa.
+El codigo te abre un menu donde tu eliges que opcion te interesa.
 
 ````bash
 1) Registrar paciente `nombre_del_paciente`, `edad`, `sintoma`
@@ -32,13 +32,17 @@ El funcionamiento es simple, crea un struct donde almacenan los distintos datos 
 
 ````c
 struct listaP {
-//<--datos struct-->
+  char nombre[50];
+  char sintoma[200];
+  int edad;
+  int prioridad;
+  time_t hora;
 };
 
 struct listaP *data = NULL;
 ````
 
-Tambien se usa la zona horario donde te encuentras para registrar la hora actual y ponerla en cada paciente al registrarse.
+**NOTA*** Tambien se usa la zona horario donde te encuentras para registrar la hora actual y ponerla en cada paciente al registrarse.
 
 <br>
 
@@ -66,7 +70,7 @@ Todas las funciones son sin argumentos porque hice un array global donde se camb
 
 ### Ordenamiento del array por prioridad y hora
 
-Para ordenar el array yo utilice qsort para facilitar el proceso y ser mas eficiente, cree una funcion para comparar la prioridad y si son iguales por la hora y despues se ordenan al llamar al qsort en `mostrar_lista_pacientes`.
+Para ordenar el array yo utilice **qsort** para facilitar el proceso y ser mas eficiente, cree una funcion para comparar la prioridad y si son iguales por la hora y despues se ordenan al llamar al qsort en `mostrar_lista_pacientes`.
 
 ````c
 int comparar_pacientes(const void *a, const void *b) //prototipo de la funcion comparar
@@ -77,7 +81,7 @@ qsort(data, count, sizeof(struct listaP), comparar_pacientes); //funcion qsort p
 <br>
 
 ### Observaciones
-- Por defecto si no le pones ninguna prioridad a un paciente, quedara en BAJA por default.
+- Por defecto si no le pones ninguna prioridad a un paciente, quedara en **BAJA** por default.
 - El codigo cuando te piden ingresar una opcion que son numeros y tu agregas una letra va a arrojar `Segmentation fault (core dumped)`.
 - Si a la edad ingresas un valor no válido como un caracter va a quedar por defecto en 0 años.
 - Al querer cambiar la prioridad de un paciente, el nombre tiene que ser exactamente igual al registrado, si no, no lo encontrara.

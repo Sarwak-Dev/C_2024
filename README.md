@@ -1,10 +1,15 @@
+# Codigo para lista de espera de un hospital con prioridad
+
+<br>
+<br>
+
 Para ejecutar el codigo hay que usar estos comandos:
-````c
+````console
 gcc tdas/*.c main.c -Wno-unused-result -o main
 ````
 
 Y luego ejecutar:
-````c
+````console
 ./main
 ````
 
@@ -37,16 +42,23 @@ struct listaP *data = NULL;
 
 Tambien se usa la zona horario donde te encuentras para registrar la hora actual y ponerla en cada paciente al registrarse.
 
+<br>
+
 ### Prototipos de funciones principales
 
-````c
-void mostrarMenuPrincipal();
-void registrar_paciente();
-void asignar_prioridad();
-void mostrar_lista_pacientes();
-void eliminar_paciente();
-void mostrar_prioridad_pacientes();
-````
+
+`void mostrarMenuPrincipal();`
+
+`void registrar_paciente();`
+
+`void asignar_prioridad();`
+
+`void mostrar_lista_pacientes();`
+
+`void eliminar_paciente();`
+
+`void mostrar_prioridad_pacientes();`
+
 
 Todas las funciones son sin argumentos porque hice un array global donde se cambia en todo el codigo y no hay necesidad de poner argumentos.
 
@@ -64,6 +76,9 @@ int comparar_pacientes(const void *a, const void *b) //prototipo de la funcion c
 ````c
 qsort(data, count, sizeof(struct listaP), comparar_pacientes); //funcion qsort para ordenar de mayor a menor
 ````
+<br>
+
+Development By Sarwak
 
 
 
